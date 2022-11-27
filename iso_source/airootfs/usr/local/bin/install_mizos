@@ -2,6 +2,8 @@
 
 import os
 
+os.system("touch /home/mizosu/mizdrive")
+
 print("Packaging the custom archinstall script.")
 os.system("cd $HOME && git clone https://github.com/Mizosu97/mizinstall && cd mizinstall && makepkg -si --ignorearch --skippgpcheck --skipchecksums --skipinteg")
 print("Running archinstall.")
@@ -18,8 +20,8 @@ print("Chrooting, and installing mizOS.")
 
 
 print("\n\nENTER YOUR INSTALLED USER PASSWORD.")
-os.system(f"""/usr/bin/arch-chroot {drive} su -c "sudo pacman -Syu && sudo pacman -S git lua" {user}""")
+os.system(f"""sudo /usr/bin/arch-chroot {drive} su -c "sudo pacman -Syu && sudo pacman -S git lua" {user}""")
 
 print("\n\nENTER YOUR INSTALLED USER PASSWORD.")
-os.system(f"""/usr/bin/arch-chroot {drive} su -c "nmtui && cd $HOME && mkdir Downloads && cd Downloads && git clone https://github.com/Mizosu97/mizOS && cd mizOS && chmod +x pac && ./pac && ./install" {user}""")
+os.system(f"""sudo /usr/bin/arch-chroot {drive} su -c "nmtui && cd $HOME && mkdir Downloads && cd Downloads && git clone https://github.com/Mizosu97/mizOS && cd mizOS && chmod +x pac && ./pac && ./install" {user}""")
 
