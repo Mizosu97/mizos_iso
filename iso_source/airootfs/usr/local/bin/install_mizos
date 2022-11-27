@@ -1,0 +1,21 @@
+#!/bin/python
+
+import os
+
+print("Packaging the custom archinstall script.")
+os.system("cd $HOME && git clone https://github.com/Mizosu97/mizinstall && cd mizinstall && makepkg -si --ignorearch --skippgpcheck --skipchecksums --skipinteg")
+print("Running archinstall.")
+os.system("sudo archinstall")
+
+home = os.path.expanduser('~')
+mizdrivefile = open(home + "/mizdrive", "w")
+drive = mizdrivefile.read()
+mizdrivefile.close()
+
+user = input("What is the name of the user you set? Enter it exactly how you set it.\n\n> ")
+
+print("Chrooting, and installing mizOS.")
+
+os.system(f"""/usr/bin/arch-chroot {drive} su -c "sudo pacman -Syu && sudo pacman -S git lua" {user}""")
+os.system(f"""/usr/bin/arch-chroot {drive} su -c "&& nmtui && cd $HOME && mkdir Downloads && cd Downloads && git clone https://github.com/Mizosu97/mizOS && cd mizOS && chmod +x pac && ./pac && ./install" {user}""")
+
