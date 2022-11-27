@@ -8,7 +8,7 @@ print("Running archinstall.")
 os.system("sudo archinstall")
 
 home = os.path.expanduser('~')
-mizdrivefile = open(home + "/mizdrive", "w")
+mizdrivefile = open(home + "/mizdrive", "r")
 drive = mizdrivefile.read()
 mizdrivefile.close()
 
