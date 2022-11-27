@@ -12,10 +12,14 @@ mizdrivefile = open(home + "/mizdrive", "r")
 drive = mizdrivefile.read()
 mizdrivefile.close()
 
-user = input("What is the name of the user you set? Enter it exactly how you set it.\n\n> ")
+user = input("What is the name of the installed user you have set? Enter it exactly how you set it.\n\n> ")
 
 print("Chrooting, and installing mizOS.")
 
+
+print("\n\nENTER YOUR INSTALLED USER PASSWORD.")
 os.system(f"""/usr/bin/arch-chroot {drive} su -c "sudo pacman -Syu && sudo pacman -S git lua" {user}""")
-os.system(f"""/usr/bin/arch-chroot {drive} su -c "&& nmtui && cd $HOME && mkdir Downloads && cd Downloads && git clone https://github.com/Mizosu97/mizOS && cd mizOS && chmod +x pac && ./pac && ./install" {user}""")
+
+print("\n\nENTER YOUR INSTALLED USER PASSWORD.")
+os.system(f"""/usr/bin/arch-chroot {drive} su -c "nmtui && cd $HOME && mkdir Downloads && cd Downloads && git clone https://github.com/Mizosu97/mizOS && cd mizOS && chmod +x pac && ./pac && ./install" {user}""")
 
