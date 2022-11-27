@@ -1,5 +1,8 @@
 #!/bin/bash
 
+mkdir work
+mkdir out
+
 sudo pacman -Syu
 sudo pacman -S archiso
 
