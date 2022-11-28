@@ -5,6 +5,8 @@ ISO image for mizOS systemd.
 
 This is the source code to the mizOS ISO image, made with [archiso](https://wiki.archlinux.org/title/archiso).
 
+If you don't want to compile the ISO yourself, I have the precompiled ISO hosted on mega.nz. Get it [here](https://mega.nz/file/7qwXnIBC#rtwgyYBGI4qWIbu1eiJ1Dd72PDdvGFS70vjSzxSQZRY).
+
 # Build
 
 You need a machine running Arch Linux or one of its derivatives to build the ISO.
